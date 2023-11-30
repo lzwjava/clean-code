@@ -8,8 +8,5 @@ setup(
         'console_scripts': [
             'cleancode = cleancode.cleancode:main'
         ],
-    },
-    install_requires=[
-
-    ],
+    }
 )

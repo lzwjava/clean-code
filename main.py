@@ -2,7 +2,7 @@ import re
 import sys
 
 if len(sys.argv) != 2:
-    print("Usage: python clean_code.py <input_file>")
+    print("Usage: python clean-code.py <input_file>")
     sys.exit(1)
 
 input_file = sys.argv[1]

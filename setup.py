@@ -1,7 +1,15 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='cleancode',
     version='0.1',
-    scripts=['cleancode/cleancode.py'],
+    packages=find_packages(),
+    entry_points={
+        'console_scripts': [
+            'cleancode = cleancode.cleancode:main'
+        ],
+    },
+    install_requires=[
+
+    ],
 )

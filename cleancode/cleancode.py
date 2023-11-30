@@ -33,9 +33,11 @@ def clean_code(input_file):
 
 def main():
     parser = argparse.ArgumentParser(description="Clean Python code by removing comments.")
-    parser.add_argument("input_file", help="Input Python file to clean (must have a '.py' extension).")
+    parser.add_argument("input_files", nargs="+", help="Input Python file(s) to clean (must have a '.py' extension).")
     args = parser.parse_args()
-    clean_code(args.input_file)
+
+    for input_file in args.input_files:
+        clean_code(input_file)
 
 
 if __name__ == "__main__":

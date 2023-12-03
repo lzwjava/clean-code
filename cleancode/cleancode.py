@@ -4,7 +4,7 @@ import argparse
 import shutil
 
 
-def clean_code(input_file, skip_backup):
+def clean_code(input_file, backup):
     if not input_file.endswith(".py"):
         print("Error: Input file must have a '.py' extension.")
         return
@@ -15,7 +15,7 @@ def clean_code(input_file, skip_backup):
 
     filename, file_extension = os.path.splitext(input_file)
 
-    if not skip_backup:
+    if backup:
         backup_file = f"{filename}_original{file_extension}"
         shutil.copy(input_file, backup_file)
 
@@ -30,18 +30,18 @@ def clean_code(input_file, skip_backup):
 
     print(f"Cleaned code saved to {input_file}")
 
-    if not skip_backup:
+    if backup:
         print(f"Original code backed up to {backup_file}")
 
 
 def main():
     parser = argparse.ArgumentParser(description="Clean Python code by removing comments.")
     parser.add_argument("input_files", nargs="+", help="Input Python file(s) to clean (must have a '.py' extension).")
-    parser.add_argument('--skip_backup', action='store_true', help='skip backup if present')
+    parser.add_argument('--backup', action='store_true', help='skip backup if present')
     args = parser.parse_args()
 
     for input_file in args.input_files:
-        clean_code(input_file, args.skip_backup)
+        clean_code(input_file, args.backup)
 
 
 if __name__ == "__main__":
